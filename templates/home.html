@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script>
+        let data = {{ data|tojson }};
+    </script>
+
+    <div class="welcome-text grey-border center">
+        Welcome to NYC Tennis Courts!
+    </div>
+    <div class="home-container">
+        <img id="home-image" alt="Image of tennis court in NYC" src="https://images.ctfassets.net/cgcah00ul21b/1J59lW16jkA6CMowEzPSOd/1b692bfcfdccd0e0daccfb35becc9c96/Hudson-River-Park-Tennis-Courts.jpg">
+    </div>
+    <div class="home-container">
+        <h4 class="home-desc">On this website tailored for Columbia students, you can search for various tennis courts located in the NYC 
+            area and add new courts to share with others. See various details such as price, distance from Columbia, number of courts,
+            type and surface of courts, and more.
+        </h4>
+    </div>
+
+    <div class="welcome-text grey-border">
+        Most Popular Tennis Courts in NYC This Week:
+    </div>
+    <div id="popular-courts"></div>
+
+    <form id="view-all" action="/view_all" method="get">
+        <input class="btn accent-btn" type="submit" value="See all tennis courts in NYC">
+    </form>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
+{% endblock %}

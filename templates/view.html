@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script>
+        let court = {{ court|tojson }};
+        document.title = court.name;
+    </script>
+
+    <div id="edit-confirm"></div>
+
+    <div id="view-results"></div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'view.js') }}"></script>
+
+{% endblock %}

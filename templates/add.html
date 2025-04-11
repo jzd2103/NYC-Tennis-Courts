@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script>
+        let data = {{ data|tojson }};
+    </script>
+
+    <div id="add-success"></div>
+
+    <div class="welcome-text grey-border">
+        Add a New Tennis Court:
+    </div>
+
+    <form id="add">
+        <div class="add-edit-container">
+            <div class="add-item">
+                <span class="asterisk">* </span>
+                Name:
+                <input id="name" name="name" placeholder="Enter a name">
+            </div>
+            <div id="warning-name"></div>
+            <div class="add-item">
+                <span class="asterisk">* </span>
+                Address:
+                <input id="address" name="address" placeholder="Enter an address">
+            </div>
+            <div id="warning-address"></div>
+            <div class="add-item">
+                <span class="asterisk">* </span>
+                Image URL:
+                <input id="image" name="image" placeholder="Enter an image URL">
+            </div>
+            <div id="warning-image"></div>
+            <div class="add-item">
+                <span class="asterisk">* </span>
+                Price (hourly):
+                <input id="price" name="price" placeholder="Enter a price">
+            </div>
+            <div id="warning-price"></div>
+            <div class="add-item">
+                <span class="asterisk">* </span>
+                Description:
+                <textarea id="description" name="description" placeholder="Enter a description" rows="4"></textarea>
+            </div>
+            <div id="warning-description"></div>
+            <div class="add-item"> 
+                <span class="asterisk">* </span>
+                Number of courts:
+                <input id="courts" name="courts" placeholder="Enter an integer">
+            </div>
+            <div id="warning-courts"></div>
+            <div class="add-item">
+                <label for="types">
+                    <span class="asterisk">* </span>
+                    Court types:<br>
+                    <select class="js-example-basic-multiple js-states form-control" id="types" name="types[]" multiple="multiple" >
+                        <option value="Indoor">Indoor</option>
+                        <option value="Outdoor">Outdoor</option>
+                    </select>
+                </label>
+            </div>
+            <div id="warning-types"></div>
+            <div class="add-item"> 
+                <span class="asterisk">* </span>
+                Travel time from Columbia:
+                <input id="trip" name="trip" placeholder="Enter a number in minutes">
+            </div>
+            <div id="warning-trip"></div>
+            <div class="add-item">
+                <label for="surfaces">
+                    <span class="asterisk">* </span>
+                    Court surfaces:<br>
+                    <select class="js-example-basic-multiple js-states form-control" id="surfaces" name="surfaces[]" multiple="multiple">
+                        <option value="Hard">Hard</option>
+                        <option value="Clay">Clay</option>
+                        <option value="Grass">Grass</option>
+                    </select>
+                </label>
+            </div>
+            <div id="warning-surfaces"></div>
+            <div class="add-item">
+                <span class="asterisk">* </span>
+                Rating:
+                <input id="rating" name="rating" placeholder="Enter a number out of 5">
+            </div>
+            <div id="warning-rating"></div>
+            <div class="add-item">
+                Reviews:
+                <textarea id="reviews" name="reviews" placeholder="Enter reviews (new line for each review)" rows="4"></textarea>
+            </div>
+            <div id="warning-reviews"></div>
+            <div class="buttons">
+                <input id="submit-add" type="button" class="btn btn-success" value="Submit">
+            </div>
+            <div class="asterisk-container">
+                <span class="asterisk">* </span>
+                <span class="asterisk-text"> indicates required field</span>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'add.js') }}"></script>
+
+{% endblock %}

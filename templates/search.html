@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script>
+        let data = {{ data|tojson }};
+        let results = {{ results|tojson }};
+        let search_input = {{ search_input|tojson }}
+    </script>
+
+    <div class="welcome-text grey-border">
+        Search results for: "{{ search_input }}"
+    </div>
+
+    <div id="num-results"></div>
+
+    <div id="search-results"></div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+
+
+{% endblock %}
